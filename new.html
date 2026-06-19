@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="THE DAILY PULSE" content="international news,initial-scale=1.0">
+        <title>THE DAILY PULSE</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+        --candy-blue: #B2D5E5;       
+        --onyx: #020202;             
+        --card-bg: rgba(255, 255, 255, 0.4); 
+        --border-color: rgba(2, 2, 2, 0.1);
+    }
+
+     {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--candy-blue); 
+        color: var(--onyx);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+
+    header {
+        background: rgba(178, 213, 229, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: var(--onyx);
+        text-align: center;
+        padding: 40px 20px;
+        border-bottom: 2px solid var(--border-color);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    marquee {
+        background: rgba(2, 2, 2, 0.08);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        color: var(--onyx);
+        padding: 12px 0;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--border-color);
+        display: block;
+    }
+
+    section {
+        max-width: 1140px;
+        margin: 50px auto;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+        color: var(--onyx);
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 12px;
+        margin-bottom: 35px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .nothing {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .anything, .new-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 16px;
+        padding: 30px;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03);
+    }
+
+    .anything:hover, .new-card:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.5);
+        border-color: var(--onyx);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .anything h3, .new-card h3 {
+        margin-top: 0;
+        color: var(--onyx); 
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    .anything p, .new-card p {
+        color: #334155;
+        font-size: 0.95rem;
+    }
+
+    a {
+        color: var(--onyx);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    a:hover {
+        color: #ffffff;
+    }
+
+    .anything a, .new-card a {
+        display: inline-block;
+        margin-top: 15px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .anything a:hover, .new-card a:hover {
+        background: var(--onyx);
+        color: var(--candy-blue);
+    }
+
+    h3 {
+        color: var(--onyx);
+        margin-top: 30px;
+        font-size: 1.3rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    ul li {
+        padding: 16px 20px;
+        background: rgba(255, 255, 255, 0.15);
+        margin-bottom: 12px;
+        border-left: 4px solid var(--onyx);
+        border-radius: 0 12px 12px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    ul li:hover {
+        background: rgba(255, 255, 255, 0.4);
+        padding-left: 28px;
+    }
+
+    ul li a {
+        color: #1e293b;
+    }
+
+    form {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--onyx);
+    }
+
+    form input[type="text"], form textarea {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 25px;
+        background: rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 1rem;
+        color: var(--onyx);
+        transition: all 0.3s ease;
+    }
+
+    form input[type="text"]:focus, form textarea:focus {
+        outline: none;
+        border-color: var(--onyx);
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    }
+
+    form button {
+        background: var(--onyx);
+        color: var(--candy-blue);
+        border: none;
+        padding: 16px 25px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    form button:hover {
+        background: rgba(2, 2, 2, 0.85);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    .social-links a {
+        background: rgba(255, 255, 255, 0.3);
+        padding: 12px 28px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: var(--onyx);
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        transform: translateY(-4px);
+        background: var(--onyx);
+        color: var(--candy-blue);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+        background: rgba(2, 2, 2, 0.05);
+        color: #475569;
+        text-align: center;
+        padding: 50px 20px;
+        margin-top: 100px;
+        font-size: 0.95rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    footer p {
+        margin: 8px 0;
+    }
+
+    footer strong {
+        color: var(--onyx);
+    }
+</style>
+ </head>
+        <body>
+            <header>
+              <h1>THE DAILY PULSE</h1> 
+            </header>
+            <div class="breaking-news"></div>
+            <marquee behavior:"scroll" direction="left">
+            Breaking News:Fuck you
+            </marquee>
+            </div>
+         <section>
+             <h2>TOP NEWS</h2>
+             <div class="nothing">
+                 <div class="anything">
+             <h3>Jami is the world famous gooner</h3>
+             <p>he caught at night 3am by him father when he was gooning...</p>
+               <a href="https://www.bbc.com/bengali" target="_blank">read full news</a>   
+              
+                </div>
+                <div class="new-card">
+                    <h3>Elon Musk world first gooner</h3>
+                    <p>and world first trilionaire...</p>
+                    <a href="https://www.prothomalo.com/" target="_blank">read full news</a>
+                    </div>
+                    </div>    
+         </section>
+       
+         <section >
+             <h2>Section wise News</h2>
+             <h3>SPORTS</h3>
+    
+         <ul>
+             <li><a href="https://www.espn.com" target="_blank">about worldcup</a></li>
+         <li><a href="https://www.cricbuzz.com" target="_blank">about Bangladesh sport</a></li>    
+         </ul>
+         <h3>Politics</h3>
+         <ul>
+             <li><a href="#" target="_blank">another country politics</a></li>
+             <li><a href="#" target="_blank">my country politics</a></li>
+         </ul>
+         </section>
+         
+         <section>
+          <h2>PUBLISH YOUR ARTICLE</h2>  
+           <p>Share your top article</p>
+           <form action="#" method="POST">
+              <label for="author">Your Name:</label> 
+              <input type="text" id="title" placeholder="Write your name"required>
+            
+              <label for="title">Article headlines:</label>
+              <input type="text" id="title" placeholder="Put your headlines"required>
+              
+              <label for="content">About Article:</label>
+              <textarea id="content" rows="5" placeholder="About your article"required></textarea>
+              
+            <button type="submit">Publish Your Article</button>
+           </form>
+         </section>
+         
+         <section style="text-align: center;">
+             <h2>Stay connected with us</h2>
+             <div class="social-links">
+    <a href="https://www.facebook.com" target="_blank">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    
+    <a href="https://www.youtube.com" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+    </a>
+    
+    <a href="https://www.instagram.com" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+</div>
+
+             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+             
+             </section>
+                <footer>
+        <p>© 2026 True and trusted news here</p>
+        <p><strong>Develoer Team:</strong> MD.REHAN & JAMIUL HASAN </p>
+        <p>Contact: thedailypulse@gmail.com | Helpline:016XXXXXXXX</p>
+    </footer>
+
+</body>
+</html>
+
+      
+       
+         
+         
